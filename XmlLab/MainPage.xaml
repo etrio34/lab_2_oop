@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XmlLab.MainPage"
+             Title="Мережна газета факультету">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+
+            <Button Text="Обрати XML-файл" Clicked="OnChooseFileClicked" />
+            <Label x:Name="FileLabel" Text="Файл не обрано" />
+
+            <Label Text="Спосіб аналізу:" />
+            <Picker x:Name="StrategyPicker" SelectedIndexChanged="OnStrategyChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>SAX</x:String>
+                        <x:String>DOM</x:String>
+                        <x:String>LINQ to XML</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="Назва містить:" />
+            <Entry x:Name="TitleEntry" />
+
+            <Label Text="Анотація містить:" />
+            <Entry x:Name="AnnotationEntry" />
+
+            <Label Text="Автор:" />
+            <Picker x:Name="AuthorPicker" />
+
+            <Label Text="Вид матеріалу:" />
+            <Picker x:Name="TypePicker" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Знайти" Clicked="OnSearchClicked" />
+                <Button Text="Clear" Clicked="OnClearClicked" />
+                <Button Text="Перетворити в HTML" Clicked="OnTransformClicked" />
+                <Button Text="Вихід" Clicked="OnExitClicked" />
+            </HorizontalStackLayout>
+
+            <Editor x:Name="ResultEditor" IsReadOnly="True" HeightRequest="300" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
